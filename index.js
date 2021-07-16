@@ -1,11 +1,3 @@
-
-const bodyParser = require('body-parser');
-const { json } = require('express');
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + '/public'));
-
 let express = require('express');
 let app = express();
 let mysql = require('mysql');
