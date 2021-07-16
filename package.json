@@ -13,7 +13,11 @@
   "dependencies": {
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+<<<<<<< HEAD
     "firebase": "^8.7.1",
+=======
+    "mysql": "^2.18.1",
+>>>>>>> 12db88311fe8587d907de1f9ff058fb66fe69139
     "nodemon": "^2.0.12"
   }
 }
