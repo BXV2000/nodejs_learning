@@ -10,7 +10,8 @@ let con = mysql.createConnection({
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
-// app.get('/public/home.html', function (req, res) {              check connection
+//check connection
+// app.get('/public/home.html', function (req, res) {
 //     var sql = "SELECT * FROM surveyform";
 //     con.query(sql, function(err, results) {
 //       if (err) throw err;
