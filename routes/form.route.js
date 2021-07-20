@@ -2,10 +2,6 @@ let express = require('express');
 let router = express.Router();
 let db = require('../database');
 
-router.get('/form', function(req, res) { 
-    res.render('form');
-});
-
 router.post('/create', function(req, res) {
     // let hunterName = req.body.hunterName;
     // console.log(hunterName);
