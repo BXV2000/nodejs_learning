@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="/">Back</a>
+    <div class="container">
+      <header class="header">
+        <h1 id="title" class="center-text">Monster Hunter Survey Form</h1>
+        <p id="description" class="description center-text">
+          'A Wyvern a day keeps the boredom away'
+        </p>
+        <p id="description" class="description center-text">
+          'Act before you think (Yeah, that guy is screwed)'
+        </p>
+        <p id="description" class="description center-text">
+          'Some days... You're fucked from the start...'
+        </p>
+      </header>
+      <form action="/form/create" method="POST" id="survey-form">
+        <div class="form-group">
+          <label id="name-label" for="name">Hunter Identity</label>
+          <input
+            type="text"
+            id="name"
+            name="hunterName"
+            class="form-control"
+            placeholder="A name to strikes fear into the monsters heart!"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label id="email-label" for="email">Mail Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="A mean to contact on monster requests!"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label id="number-label" for="number"
+            >Years of experience<span class="clue"
+              >(If you're a hunter then fill it, otherwise this is
+              optional)</span
+            ></label
+          >
+          <input
+            type="number"
+            id="number"
+            name="experience"
+            min="1"
+            max="99"
+            class="form-control"
+            placeholder="Years you spent on hunting elder dragons and get fucked by Rajang!"
+          />
+        </div>
+        <div class="form-group">
+          <p>Which Hunter Rank are you on?</p>
+          <select id="dropdown" name="hunterRank" class="form-control" required>
+            <option disabled selected value>Select current Hunter Rank</option>
+            <option value="low-rank">Low Rank</option>
+            <option value="high-rank">High Rank</option>
+            <option value="master-rank">Master Rank</option>
+          </select>
+        </div>
+        <div class="form-group" id="weapon">
+          <p>
+            What type of weapon can you use?<span class="clue"
+              >(You can select many)</span
+            >
+          </p>
+          <label>
+            <input
+              name="weapons"
+              value="greatsword"
+              type="checkbox"
+              class="input-checkbox"
+            />Greatsword</label
+          >
+          <label>
+            <input
+              name="weapons"
+              value="sword&shield"
+              type="checkbox"
+              class="input-checkbox"
+            />Sword & Shield</label
+          >
+          <label>
+            <input
+              name="weapons"
+              value="dualblades"
+              type="checkbox"
+              class="input-checkbox"
+            />Dual Blades</label
+          >
+          <label>
+            <input
+              name="weapons"
+              value="longsword"
+              type="checkbox"
+              class="input-checkbox"
+            />Long Sword</label
+          >
+          <label>
+            <input
+              name="weapons"
+              value="hammer"
+              type="checkbox"
+              class="input-checkbox"
+            />Hammer</label
+          >
+          <label>
+            <input
+              name="weapons"
+              value="huntinghorn"
+              type="checkbox"
+              class="input-checkbox"
+            />Hunting Horn</label
+          >
+          <label>
+            <input
+              name="weapons"
+              value="lance"
+              type="checkbox"
+              class="input-checkbox"
+            />Lance</label
+          >
+          <label>
+            <input
+              name="weapons"
+              value="gunlance"
+              type="checkbox"
+              class="input-checkbox"
+            />Gunlance</label
+          >
+          <label>
+            <input
+              name="weapons"
+              value="switchaxe"
+              type="checkbox"
+              class="input-checkbox"
+            />Switch Axe</label
+          >
+          <label>
+            <input
+              name="weapons"
+              value="chargeblade"
+              type="checkbox"
+              class="input-checkbox"
+            />Charge Balde</label
+          >
+          <label>
+            <input
+              name="weapons"
+              value="insectglaive"
+              type="checkbox"
+              class="input-checkbox"
+            />Insect Glaive</label
+          >
+          <label>
+            <input
+              name="weapons"
+              value="bow"
+              type="checkbox"
+              class="input-checkbox"
+            />Bow</label
+          >
+          <label>
+            <input
+              name="weapons"
+              value="lightbowgun"
+              type="checkbox"
+              class="input-checkbox"
+            />Light Bowgun</label
+          >
+          <label>
+            <input
+              name="weapons"
+              value="heavybowgun"
+              type="checkbox"
+              class="input-checkbox"
+            />Heavy Bowgun</label
+          >
+        </div>
+        <div class="form-group" id="opinion">
+          <p>
+            Do you hate the Handler and think that she's the reason you got
+            raped by monsters?
+          </p>
+          <label>
+            <input
+              name="opinion"
+              value="yes"
+              type="radio"
+              class="input-radio"
+            />Yes</label
+          >
+          <label>
+            <input
+              name="opinion"
+              value="definitely"
+              type="radio"
+              class="input-radio"
+            />Definitely</label
+          >
+          <label>
+            <input
+              name="opinion"
+              value="absolutely"
+              type="radio"
+              class="input-radio"
+            />Absolutely</label
+          >
+        </div>
+        <div class="form-group">
+          <p>Anything to add about yours hunting career?</p>
+          <textarea
+            id="comments"
+            class="input-textarea"
+            name="note"
+            placeholder="Inscribe your legend!"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <button
+            type="submit"
+            id="submit"
+            class="submit-button"
+            onsubmit="return false"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+    <script>
+      const checkButton = document.getElementById("submit");
+      checkButton.addEventListener("click", function () {
+        let hunterName = document.getElementById("name").value;
+        let hunterEmail = document.getElementById("email").value;
+        let hunterExp = document.getElementById("number").value;
+        let hunterRank = document.getElementById("dropdown").value;
+        let hunterWeapons = document.getElementsByName("weapon");
+        let hunterOpinion = document.getElementsByName("hate-handler");
+        let hunterCmt = document.getElementById("comments").value;
+        let checkedItems = [];
+
+        function validateEmail(email) {
+          var re =
+            /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return re.test(email);
+        }
+
+        if (
+          validateEmail(hunterEmail) &&
+          hunterName !== "" &&
+          hunterExp !== "" &&
+          hunterRank !== ""
+        ) {
+          console.log(hunterName);
+          console.log(hunterEmail);
+          console.log(hunterExp);
+          console.log(hunterRank);
+
+          for (let i = 0; i < hunterWeapons.length; i++) {
+            if (hunterWeapons[i].checked)
+              checkedItems.push(hunterWeapons[i].value);
+          }
+          console.log(checkedItems);
+
+          for (var i = 0, length = hunterOpinion.length; i < length; i++) {
+            if (hunterOpinion[i].checked) {
+              console.log(hunterOpinion[i].value);
+              break;
+            }
+          }
+          console.log(hunterCmt);
+        } else console.log("ngu");
+      });
+    </script>
+  </body>
+</html>
