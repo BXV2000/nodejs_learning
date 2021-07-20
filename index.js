@@ -19,7 +19,11 @@ app.use(express.static(__dirname + '/public'));
 // });
 
 app.get("/", (req, res) => {
-    res.render("hello")
+    res.render("search")
+})
+
+app.get("/data",(req, res)=>{
+    res.redirect("/");
 })
 
 app.listen(3000);
