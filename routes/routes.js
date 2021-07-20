@@ -2,7 +2,15 @@ let express = require('express');
 let router = express.Router();
 let db = require('../database');
 
-router.get('/form', function(req, res) { 
+router.get('/', function(req, res) { 
+    res.render('menu');
+});
+
+router.get('/search', function(req, res) { 
+    res.render('search');
+});
+
+router.get('/fill', function(req, res) { 
     res.render('hello');
 });
 

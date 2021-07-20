@@ -5,7 +5,7 @@ let usersRouter = require('./routes/routes');
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
-app.use('/users', usersRouter);
+app.use('/', usersRouter);
 
 // app.post('/public/home.html', function (req, res) {          
 //     var sql = "SELECT * FROM surveyform";
