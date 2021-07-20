@@ -1,11 +1,16 @@
 let express = require('express');
 let app = express();
-let usersRouter = require('./routes/routes');
+let form_router = require('./routes/form.route');
+let menu_router = require('./routes/menu.route');
+let search_router = require('./routes/search.route');
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
-app.use('/', usersRouter);
+app.use('/form', form_router);
+app.use('/search', search_router);
+app.use('/', menu_router);
+// app.use('/form', form_router);
 
 // app.post('/public/home.html', function (req, res) {          
 //     var sql = "SELECT * FROM surveyform";
@@ -14,9 +19,5 @@ app.use('/', usersRouter);
 //       res.send(results);
 //     });
 // });
-
-// app.get("/", (req, res) => {
-//     res.render("hello")
-// })
 
 app.listen(3000);
