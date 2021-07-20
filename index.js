@@ -12,7 +12,6 @@ app.use(express.static(__dirname + '/public'));
 app.use('/form', form_router);
 app.use('/search', search_router);
 app.use('/', menu_router);
-// app.use('/form', form_router);
 
 // app.post('/public/home.html', function (req, res) {          
 //     var sql = "SELECT * FROM surveyform";
