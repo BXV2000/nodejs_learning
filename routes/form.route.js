@@ -4,7 +4,7 @@ let db = require('../database');
 
 
 router.post('/create', function(req, res) {
-    let hunterName = req.body.hunterName;
+    let hunterName = req.body;
     console.log(hunterName);
     // let email = req.email,
     //     experience = req.experience,
