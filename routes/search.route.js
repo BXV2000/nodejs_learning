@@ -13,7 +13,9 @@ router.get('/', function(req, res) {
 
 router.post('/data', function(req, res) {
     let searchid = req.body.searchID;
-    let sql=`SELECT * FROM surveyform WHERE id=${searchid}`;
+    let sql;
+    if (searchid !=="") {sql=`SELECT * FROM surveyform WHERE id=${searchid}`}
+    else{sql=`SELECT * FROM surveyform`};
     db.query(sql, function (err, data) {
     if (err) throw err;
     console.log("Done!!");
