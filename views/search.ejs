@@ -8,19 +8,36 @@
     <title>Document</title>
   </head>
   <body>
+    <style>
+      #hidden_id {
+        display: none;
+      }
+    </style>
     <div class="todo_app">
       <h1>Search profile</h1>
-      <form action="/data" method="get">
+      <form action="/search/data" method="post">
         <input
           class="input_todo"
-          name="content"
+          name="searchID"
           type="text"
-          id="todo"
           placeholder="Write something..."
         />
-        <button class="add_button">Add</button>
+        <button>Find</button>
         <a href="/">Back</a>
+        <% for(let i=0; i < profile.length; i++) { %>
       </form>
+      <h3><%=profile[i].hunterName%></h3>
+      <form action="/search/delete" method="post">
+        <input
+          id="hidden_id"
+          type="text"
+          name="id"
+          value="<%=profile[i].id%>"
+        />
+        <button>X</button>
+      </form>
+      <% } %>
     </div>
+    <script></script>
   </body>
 </html>

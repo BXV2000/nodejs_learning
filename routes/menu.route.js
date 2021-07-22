@@ -10,7 +10,7 @@ router.get('/form', function(req, res) {
 });
 
 router.get('/search', function(req, res) { 
-    res.render('search');
+    res.render('search',{data});
 });
 
 
