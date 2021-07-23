@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let db = require('../database');
+const { route } = require('./form.route');
 
 let userList = [];
 
@@ -46,6 +47,19 @@ router.post('/delete',function(req,res){
         res.render('search', {profile:data});
       });
     res.redirect("/search")
+})
+
+router.post('/update',function(req, res){
+  let changeHunterName = req.body.changeHunterName;
+  let changeHunterEmail= req.body.changeHunterEmail;
+  let id = req.body.id;
+  let sql=`UPDATE surveyform SET hunterName='${changeHunterName}', email='${changeHunterEmail}' WHERE id=${id}`;
+  db.query(sql, function (err, data) {
+    if (err) throw err;
+    console.log("Changed!!!");
+    res.render('search', {profile:data});
+  });
+  res.redirect("/search")
 })
 
 module.exports = router;

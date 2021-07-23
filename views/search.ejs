@@ -9,7 +9,7 @@
   </head>
   <body>
     <style>
-      #hidden_id {
+      .hidden_id {
         display: none;
       }
     </style>
@@ -26,10 +26,29 @@
         <a href="/">Back</a>
       </form>
       <% for(let i=0; i < profile.length; i++) { %>
-      <h3><%=profile[i].hunterName%></h3>
+
+      <form action="/search/update" method="post">
+        <input
+          class="hidden_id"
+          type="text"
+          name="id"
+          value="<%=profile[i].id%>"
+        />
+        <input
+          type="text"
+          name="changeHunterName"
+          value="<%=profile[i].hunterName%>"
+        />
+        <input
+          type="text"
+          name="changeHunterEmail"
+          value="<%=profile[i].email%>"
+        />
+        <button>Change</button>
+      </form>
       <form action="/search/delete" method="post">
         <input
-          id="hidden_id"
+          class="hidden_id"
           type="text"
           name="id"
           value="<%=profile[i].id%>"
