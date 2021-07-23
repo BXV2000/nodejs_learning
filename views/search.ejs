@@ -28,6 +28,7 @@
       <% for(let i=0; i < profile.length; i++) { %>
 
       <form action="/search/update" method="post">
+        <p>ID: <%=profile[i].id%></p>
         <input
           class="hidden_id"
           type="text"
