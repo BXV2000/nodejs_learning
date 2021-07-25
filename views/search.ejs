@@ -82,6 +82,10 @@
         saveBtn.classList.toggle("hideChange");
         fixedName.classList.toggle("hideChange");
         fixedEmail.classList.toggle("hideChange");
+        if (changeButton.innerHTML === "Change")
+          changeButton.innerHTML = "Cancel";
+        else if (changeButton.innerHTML === "Cancel")
+          changeButton.innerHTML = "Change";
       });
     </script>
   </body>
