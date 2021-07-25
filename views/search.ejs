@@ -9,15 +9,18 @@
   </head>
   <body>
     <style>
-      .hidden_id {
+      .hiddenID {
+        display: none;
+      }
+      .hideChange {
         display: none;
       }
     </style>
-    <div class="todo_app">
+    <div class="searchForm">
       <h1>Search profile</h1>
       <form action="/search/data" method="post">
         <input
-          class="input_todo"
+          class="inputSearcg"
           name="searchID"
           type="text"
           placeholder="Write something..."
@@ -26,37 +29,64 @@
         <a href="/">Back</a>
       </form>
       <% for(let i=0; i < profile.length; i++) { %>
-
-      <form action="/search/update" method="post">
-        <input
-          class="hidden_id"
-          type="text"
-          name="id"
-          value="<%=profile[i].id%>"
-        />
-        <input
-          type="text"
-          name="changeHunterName"
-          value="<%=profile[i].hunterName%>"
-        />
-        <input
-          type="text"
-          name="changeHunterEmail"
-          value="<%=profile[i].email%>"
-        />
-        <button>Change</button>
-      </form>
-      <form action="/search/delete" method="post">
-        <input
-          class="hidden_id"
-          type="text"
-          name="id"
-          value="<%=profile[i].id%>"
-        />
-        <button>X</button>
-      </form>
+      <div>
+        <form action="/search/update" method="post">
+          <p>ID: <%=profile[i].id%></p>
+          <p id="fixedHunterName" class=""><%=profile[i].hunterName%></p>
+          <p id="fixedHunterEmail" class=""><%=profile[i].email%></p>
+          <input
+            class="hiddenID"
+            type="text"
+            name="id"
+            value="<%=profile[i].id%>"
+          />
+          <input
+            type="text"
+            id="changeHunterName"
+            class="hideChange"
+            name="changeHunterName"
+            value="<%=profile[i].hunterName%>"
+          /><br />
+          <input
+            type="text"
+            id="changeHunterEmail"
+            class="hideChange"
+            name="changeHunterEmail"
+            value="<%=profile[i].email%>"
+          />
+          <button id="saveButton" class="hideChange">Save</button>
+        </form>
+        <form action="/search/delete" method="post">
+          <input
+            class="hiddenID"
+            type="text"
+            name="id"
+            value="<%=profile[i].id%>"
+          />
+          <button>X</button>
+        </form>
+        <button id="changeButton">Change</button>
+      </div>
       <% } %>
     </div>
-    <script></script>
+    <script>
+      let changeButton = document.getElementById("changeButton");
+      changeButton.addEventListener("click", function () {
+        let hideName = document.getElementById("changeHunterName");
+        let hideEmail = document.getElementById("changeHunterEmail");
+        let fixedName = document.getElementById("fixedHunterName");
+        let fixedEmail = document.getElementById("fixedHunterEmail");
+        let saveBtn = document.getElementById("saveButton");
+        hideName.classList.toggle("hideChange");
+        hideEmail.classList.toggle("hideChange");
+        saveBtn.classList.toggle("hideChange");
+        fixedName.classList.toggle("hideChange");
+        fixedEmail.classList.toggle("hideChange");
+        if (changeButton.innerHTML === "Change")
+          changeButton.innerHTML = "Cancel";
+        else if (changeButton.innerHTML === "Cancel")
+          changeButton.innerHTML = "Change";
+      });
+    </script>
   </body>
 </html>
