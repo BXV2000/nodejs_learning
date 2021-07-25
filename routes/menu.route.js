@@ -13,6 +13,4 @@ router.get('/search', function(req, res) {
     res.render('search',{data});
 });
 
-
-
 module.exports = router;
