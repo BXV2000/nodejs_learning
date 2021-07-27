@@ -36,11 +36,11 @@ router.delete('/',function(req,res){
     };
     console.log("Deleted!!");
     res.render('search', {profile:data});
-    res.redirect("/search")
+    
   });
-  
+  res.redirect("/search");
 })
-//change to put and "/"
+
 router.put('/',function(req, res){
   let changeHunterName = req.body.changeHunterName;
   let changeHunterEmail= req.body.changeHunterEmail;
