@@ -71,6 +71,8 @@
     </div>
     <script>
       let changeButton = document.getElementById("changeButton");
+      let saveButton = document.getElementById("saveButton");
+
       changeButton.addEventListener("click", function () {
         let hideName = document.getElementById("changeHunterName");
         let hideEmail = document.getElementById("changeHunterEmail");
@@ -86,6 +88,10 @@
           changeButton.innerHTML = "Cancel";
         else if (changeButton.innerHTML === "Cancel")
           changeButton.innerHTML = "Change";
+      });
+
+      saveButton.addEventListener("click", function () {
+        alert("Saved!!!");
       });
     </script>
   </body>

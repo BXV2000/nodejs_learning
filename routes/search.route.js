@@ -15,16 +15,13 @@ router.get('/', function(req, res) {
 });
 
 router.post('/data', function(req, res) {
-  let searchid = req.body.searchID;
-  let sql;
-  if (searchid !== "") {sql=`SELECT * FROM surveyform WHERE id=${searchid}`}
-  else{sql=`SELECT * FROM surveyform`};
-  db.query(sql, function (err, data) {
+  let sql='SELECT * FROM surveyform WHERE isActive=1';
+  db.query(sql, function (err, data) { 
     if (err) {
       console.log(err);
       res.status(500).json({message: 'Hello there!'});
     };
-    console.log("Done!!");
+    console.log("Search db connected");
     res.render('search', {profile:data});
   });
 });
