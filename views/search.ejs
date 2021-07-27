@@ -30,7 +30,7 @@
       </form>
       <% for(let i=0; i < profile.length; i++) { %>
       <div>
-        <form action="/search/update" method="post">
+        <form method="POST" action="/search?_method=PUT">
           <p>ID: <%=profile[i].id%></p>
           <p id="fixedHunterName" class=""><%=profile[i].hunterName%></p>
           <p id="fixedHunterEmail" class=""><%=profile[i].email%></p>
@@ -56,7 +56,7 @@
           />
           <button id="saveButton" class="hideChange">Save</button>
         </form>
-        <form action="/search/delete" method="post">
+        <form method="POST" action="/search?_method=DELETE">
           <input
             class="hiddenID"
             type="text"

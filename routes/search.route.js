@@ -26,7 +26,7 @@ router.post('/data', function(req, res) {
   });
 });
 
-router.post('/delete',function(req,res){
+router.delete('/',function(req,res){
   let id = req.body.id;
   let sql=`UPDATE surveyform SET isActive=0 WHERE id=${id}`;
   db.query(sql, function (err, data) {
@@ -39,8 +39,8 @@ router.post('/delete',function(req,res){
   });
   res.redirect("/search")
 })
-
-router.post('/update',function(req, res){
+//change to put and "/"
+router.put('/',function(req, res){
   let changeHunterName = req.body.changeHunterName;
   let changeHunterEmail= req.body.changeHunterEmail;
   let id = req.body.id;

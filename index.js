@@ -6,6 +6,14 @@ const { errorLogger, errorResponder, failSafeHandler } = require('./error.handle
 const formRouter = require('./routes/form.route');
 const menuRouter = require('./routes/menu.route');
 const searchRouter = require('./routes/search.route');
+const methodOverride = require('method-override');
+
+
+
+//method overwrite
+app.use(methodOverride('_method'));
+
+
 
 //body parser
 app.use(bodyParser.json())
