@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
   });
 });
 
-router.post('/data', function(req, res) {
+router.post('/', function(req, res) {
   let sql='SELECT * FROM surveyform WHERE isActive=1';
   db.query(sql, function (err, data) { 
     if (err) {
@@ -50,8 +50,8 @@ router.put('/',function(req, res){
     if (err) throw err;
     console.log("Changed!!!");
     res.render('search', {profile:data});
-    res.redirect("/search")
   });
+  res.redirect("/search");
 })
 
 module.exports = router;
