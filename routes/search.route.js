@@ -36,8 +36,9 @@ router.delete('/',function(req,res){
     };
     console.log("Deleted!!");
     res.render('search', {profile:data});
+    res.redirect("/search")
   });
-  res.redirect("/search")
+  
 })
 //change to put and "/"
 router.put('/',function(req, res){
@@ -49,8 +50,8 @@ router.put('/',function(req, res){
     if (err) throw err;
     console.log("Changed!!!");
     res.render('search', {profile:data});
+    res.redirect("/search")
   });
-  res.redirect("/search")
 })
 
 module.exports = router;
