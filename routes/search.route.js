@@ -50,7 +50,6 @@ router.delete('/',function(req,res){
     };
     console.log("Deleted!!");
     res.redirect("/search");
-    res.render('search', {profile:data});
   });
 })
 
@@ -63,7 +62,6 @@ router.put('/',function(req, res){
     if (err) throw err;
     console.log("Changed!!!");
     res.redirect("/search");
-    res.render('search', {profile:data});
   });
 })
 
