@@ -32,8 +32,8 @@
       <div>
         <form method="POST" action="/search?_method=PUT">
           <p>ID: <%=profile[i].id%></p>
-          <p id="fixedHunterName" class=""><%=profile[i].hunterName%></p>
-          <p id="fixedHunterEmail" class=""><%=profile[i].email%></p>
+          <p  class=fixedHunterName "><%=profile[i].hunterName%></p>
+          <p  class="fixedHunterEmail "><%=profile[i].email%></p>
           <input
             class="hiddenID"
             type="text"
@@ -43,18 +43,18 @@
           <input
             type="text"
             id="changeHunterName"
-            class="hideChange"
+            class="changeHunterName hideChange"
             name="changeHunterName"
             value="<%=profile[i].hunterName%>"
           /><br />
           <input
             type="text"
             id="changeHunterEmail"
-            class="hideChange"
+            class="changeHunterEmail hideChange"
             name="changeHunterEmail"
             value="<%=profile[i].email%>"
           />
-          <button id="saveButton" class="hideChange">Save</button>
+          <button id="saveButton" class="saveButton hideChange">Save</button>
         </form>
         <form method="POST" action="/search?_method=DELETE">
           <input
@@ -65,34 +65,37 @@
           />
           <button>X</button>
         </form>
-        <button id="changeButton">Change</button>
+        <button class="changeButton">Change</button>
       </div>
       <% } %>
     </div>
     <script>
-      let changeButton = document.getElementById("changeButton");
-      let saveButton = document.getElementById("saveButton");
-
-      changeButton.addEventListener("click", function () {
-        let hideName = document.getElementById("changeHunterName");
-        let hideEmail = document.getElementById("changeHunterEmail");
-        let fixedName = document.getElementById("fixedHunterName");
-        let fixedEmail = document.getElementById("fixedHunterEmail");
-        let saveBtn = document.getElementById("saveButton");
-        hideName.classList.toggle("hideChange");
-        hideEmail.classList.toggle("hideChange");
-        saveBtn.classList.toggle("hideChange");
-        fixedName.classList.toggle("hideChange");
-        fixedEmail.classList.toggle("hideChange");
-        if (changeButton.innerHTML === "Change")
-          changeButton.innerHTML = "Cancel";
-        else if (changeButton.innerHTML === "Cancel")
-          changeButton.innerHTML = "Change";
-      });
-
-      saveButton.addEventListener("click", function () {
+      let changeButton = document.getElementsByClassName("changeButton");
+      let saveButton = document.getElementsByClassName("saveButton");
+      for (let i = 0; i < changeButton.length; i++) {
+        changeButton[i].addEventListener("click", function () {
+          let hideEmail = document.getElementsByClassName("changeHunterEmail")[i];
+          let fixedName = document.getElementsByClassName("fixedHunterName")[i];
+          let fixedEmail = document.getElementsByClassName("fixedHunterEmail")[i];
+          let hideName = document.getElementsByClassName("changeHunterName")[i];
+          let saveBtn = document.getElementsByClassName("saveButton")[i];
+          hideName.classList.toggle("hideChange");
+          hideEmail.classList.toggle("hideChange");
+          saveBtn.classList.toggle("hideChange");
+          fixedName.classList.toggle("hideChange");
+          fixedEmail.classList.toggle("hideChange");
+          if (changeButton[i].innerHTML === "Change")
+            changeButton[i].innerHTML = "Cancel";
+          else if (changeButton[i].innerHTML === "Cancel")
+            changeButton[i].innerHTML = "Change";
+        });
+        saveButton[i].addEventListener("click", function () {
         alert("Saved!!!");
       });
+      }
+
+      
+
     </script>
   </body>
 </html>

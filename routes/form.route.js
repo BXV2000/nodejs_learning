@@ -19,10 +19,12 @@ router.post('/create', function(req, res) {
         emailValidation = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     
     //validate email, checkbox and radio button
-    if(!emailValidation.test(email))
-        return res.status(401).json({message: 'Invalid email, please follow the syntax "abc@abc.com"'});
-    if(weapons === undefined || opinion === undefined)
-        return res.status(401).json({message: 'Please fill the required sections!'});
+    if(!emailValidation.test(email)){
+        res.status(401).json({message: 'Invalid email, please follow the syntax "abc@abc.com"'});
+    }
+    if(weapons === undefined || opinion === undefined){
+        res.status(401).json({message: 'Please fill the required sections!'});
+    }
 
     // let sql1 = `SELECT email FROM surveyform WHERE email = ('${email}')`;
     // db.query(sql1, function(err, data) {
