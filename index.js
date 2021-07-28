@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
-const { errorLogger, errorResponder, failSafeHandler } = require('./error.handler')
+// const { errorLogger, errorResponder, failSafeHandler } = require('./error.handler')
 const formRouter = require('./routes/form.route');
 const menuRouter = require('./routes/menu.route');
 const searchRouter = require('./routes/search.route');
@@ -29,8 +29,8 @@ app.use('/form', formRouter);
 app.use('/search', searchRouter);
 
 //custom error handler middleware
-app.use(errorLogger)
-app.use(errorResponder)
-app.use(failSafeHandler)
+// app.use(errorLogger)
+// app.use(errorResponder)
+// app.use(failSafeHandler)
 
 app.listen(3000, () => {console.log(`Example app listening at http://localhost:3000`)})
